@@ -13,6 +13,7 @@ docker start sql2019
 Usuario SQL : 	CommanderAPI
 		K0mm4nd3r4P1
 
+https://www.nuget.org/
 
 dotnet add package Microsoft.EntityFrameworkCore --version 3.1.13
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.13

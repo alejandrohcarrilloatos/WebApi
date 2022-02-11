@@ -35,7 +35,7 @@ namespace Commander
             services.AddControllers();
 
             // Registramos la injeccion de dependencias, existen 3 tipos Singleton, Scoped y Transient
-            services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+            services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
 
             services.AddSwaggerGen(c =>
             {
