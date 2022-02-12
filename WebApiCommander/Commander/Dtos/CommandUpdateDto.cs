@@ -2,19 +2,18 @@
 
 namespace Commander.Dtos
 {
-    public class CommandCreateDto
+    public class CommandUpdateDto
     {
-        //public int Id { get; set; }
         [Required]
         [MaxLength(250)]
         public string HowTo { get; set; }
-        
+
         [Required]
-        [MaxLength(100)] 
+        [MaxLength(100)]
         public string Line { get; set; }
-        
+
         [Required]
-        [MaxLength(50)] 
+        [MaxLength(50)]
         public string Platform { get; set; }
     }
 }

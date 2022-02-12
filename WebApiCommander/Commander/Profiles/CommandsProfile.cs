@@ -8,11 +8,17 @@ namespace Commander.Profiles
     {
         public CommandsProfile()
         {
-            // Source to DTO
+            // Source to Read DTO
             CreateMap<Command, CommandReadDto>();
 
-            // DTO to Source
+            // Create DTO to Source
             CreateMap<CommandCreateDto, Command>();
+
+            // Update DTO to Source
+            CreateMap<CommandUpdateDto, Command>();
+
+            // Update DTO to Source
+            CreateMap<Command, CommandUpdateDto>();
         }
     }
 }

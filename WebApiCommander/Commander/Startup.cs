@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Serialization;
 using System;
 
 namespace Commander
@@ -27,7 +28,10 @@ namespace Commander
             // Configuramos el contexto
             services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
 
-            services.AddControllers();
+            services.AddControllers().
+                AddNewtonsoftJson( s => {
+                    s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    });
 
             // Configuramos el automapeo de los DTOS
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
