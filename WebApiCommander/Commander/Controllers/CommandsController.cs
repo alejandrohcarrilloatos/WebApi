@@ -32,12 +32,12 @@ namespace Commander.Controllers
         }
 
         //GET api/commands/5
-        [HttpGet("{id}", Name= "GetCommandById")]
+        [HttpGet("{id}", Name = "GetCommandById")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
             var commandItem = _repository.GetCommandById(id);
             if (commandItem != null) {
-                return Ok(_mapper.Map<CommandReadDto>( commandItem));
+                return Ok(_mapper.Map<CommandReadDto>(commandItem));
             }
             return NotFound();
         }
@@ -51,14 +51,14 @@ namespace Commander.Controllers
             _repository.SaveChanges();
 
             var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
-            
+
             // Esta es la forma correcta de regresar el estatus 201 Created
             return CreatedAtRoute(nameof(GetCommandById), new { id = commandReadDto.Id }, commandReadDto);
             //return Ok(commandModel);
         }
 
         // PUT api/commands/id
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto) 
         {
             var commandModelFromRepo = _repository.GetCommandById(id);
